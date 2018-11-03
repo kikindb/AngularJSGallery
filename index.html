@@ -1,0 +1,130 @@
+<html ng-app>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+   <style>
+        .link-gallery{
+            height: 250px;
+            margin-bottom: 25px;
+        }
+
+        .img-gallery{
+            width: 100%;
+            height: 100%;
+            background-image: url("https://picsum.photos/1280/600/?random");
+            background-size: cover;
+            background-position-x: 50%;
+            background-position-y: 50%;
+        }
+        
+        .captioning{
+            position: absolute;
+            bottom: 0;
+            background-color: #000;
+            color: #fff;
+            opacity: 0.5;
+            left:0;   /** new  **/
+            right:0;  /** new  **/
+            filter: alpha(opacity=50);
+        }
+
+        .buttons{
+            margin-bottom: 25px;
+        }
+        p{
+            padding: 10px;
+            margin: 0 auto;
+            width: 100%;
+            color: white;
+        }
+        .fix{
+            position: relative;
+            width:100%;
+            padding:0px;
+        }
+        .btn{
+            margin: 3px;
+        }
+
+        .modal-content {
+            background-color: #000;
+            background-clip: padding-box;
+            border: 0px;
+            border-radius: 0px;
+        }
+
+        @media (min-width: 768px){
+            .modal-dialog {
+                width: 65%;
+                top:5%;
+            }
+        }
+
+    </style>
+    </head>
+    <body class="container-fluid">
+
+        <div class="row buttons">
+            <div class="col col-md-12">
+                <a href="" class="btn btn-danger pull-right">Event 2</a>
+                <a href="" class="btn btn-warning pull-right">Event 1</a>
+                <a href="" class="btn btn-primary pull-right">All Events</a>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div ng-repeat="_ in (_ = []).length = 10; _ track by $index" class="col-xs-12 col-sm-6 col-md-3 link-gallery">
+                <a href="#myGallery" data-slide-to="_" data-toggle="modal" data-target="#myModal">
+                    <div class="fix">
+                        <img  class="img-gallery" alt="">
+                        <div class="captioning">
+                            <p class="text-center">Cup of coffe</p>
+                        </div>
+                    </div>
+                </a>    
+            </div>
+
+        </div>
+
+    <!--begin modal window-->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                    <div id="myGallery" class="carousel slide" data-interval="false">
+                        <div class="carousel-inner">
+                            <div class="item active"> 
+                                <img style="width:100%;" src="https://placeimg.com/600/400/nature/1" alt="item0">
+                                <div class="carousel-caption">
+                                    <h3>Heading 3</h3>
+                                    <p>Slide 0  description.</p>
+                                </div>
+                            </div>
+                            <div ng-repeat="_ in (_ = []).length = 10; _ track by $index" class="item"> 
+                                <img style="width:100%;" src="https://placeimg.com/600/400/nature/{{$index}}" alt="item1">
+                                <div class="carousel-caption">
+                                    <h3>Heading {{$index}}</h3>
+                                    <p>Slide {{$index}} description.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Begin Previous and Next buttons-->
+                        <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>    
+</html>
