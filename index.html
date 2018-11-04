@@ -85,7 +85,7 @@
 
         <div class="row">
 
-            <div ng-repeat="_ in (_ = []).length = 10; _ track by $index" class="col-xs-* col-sm-6 col-md-4 col-lg-3 link-gallery">
+            <div ng-repeat="_ in (_ = []).length = 10; _ track by $index" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 link-gallery">
                 <a href="#myGallery" id="carousel-selector-{{$index}}" data-slide-to="{{$index}}" data-toggle="modal" data-target="#myModal">
                     <div class="fix">
                         <img  class="img-gallery" ng-style="{'background-image':'url(https://placeimg.com/1280/800/people/{{$index}})'}" alt="">
